@@ -1,4 +1,5 @@
-import { Component,HostListener , Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component,HostListener , Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { settingsModel } from 'src/app/models/settingsModel';
 import {AppComponent} from '../../app.component';
 import {AppSettingsService} from '../../services/app-settings.service'
@@ -51,5 +52,8 @@ export class NavBarComponent implements OnInit {
   goToPage(url: string){
 
   }
+
+  @ViewChild('sidenav')
+  sidenav!: MatSidenav;
 
 }

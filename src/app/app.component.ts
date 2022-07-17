@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { settingsModel } from './models/settingsModel';
 import { AppSettingsService } from './services/app-settings.service';
 
@@ -15,8 +16,8 @@ export class AppComponent implements AfterViewInit {
   settings: any;
   currentSettings: settingsModel = new settingsModel;
   appSettingsService: any;
-  logo: string = '';
-  items: any;
+  public logo: string = '';
+  public items: any;
   style: any;
   background: string = '';
 
@@ -41,6 +42,8 @@ export class AppComponent implements AfterViewInit {
     
 
 }
+
+
 
 }
 

@@ -14,13 +14,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppMenuComponent } from './components/app-menu/app-menu.component'
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SideNavComponent,
-    AppMenuComponent
+    AppMenuComponent,
+    AboutComponent,
+    ContactComponent
   ],
   exports: [
     HttpClientModule],
@@ -33,7 +38,8 @@ import {MatListModule} from '@angular/material/list'
     MatIconModule,
     HttpClientModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule
   ],
   providers: [AppSettingsService],
   bootstrap: [AppComponent]

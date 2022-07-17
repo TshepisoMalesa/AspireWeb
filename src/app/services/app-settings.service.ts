@@ -35,6 +35,7 @@ export class AppSettingsService {
     return this.http
       .get(url, { headers: this.headers, params : new HttpParams()
         .set('name', 'Codebox' )
+        .set('isTest', true )
   })
       .toPromise()
       .then((response) =>
