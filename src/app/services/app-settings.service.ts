@@ -30,7 +30,7 @@ export class AppSettingsService {
   GetSettings(): Promise<settingsModel> {
     this.setHeaders();
 
-    let url = this._apiUrl + "Standard/settings";
+    let url = this._apiUrl + "aspire/getSettings";
 
     return this.http
       .get(url, { headers: this.headers, params : new HttpParams()
