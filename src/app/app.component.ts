@@ -1,11 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { DomSanitizer } from '@angular/platform-browser';
 import { settingsModel } from './models/settingsModel';
 import { AppSettingsService } from './services/app-settings.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
@@ -20,29 +22,24 @@ export class AppComponent implements AfterViewInit {
   public items: any;
   style: any;
   background: string = '';
+  
 
 
-  constructor( public appSettings: AppSettingsService, private elementRef: ElementRef) {
-    appSettings.GetSettings().then((settings) => {
-      this.currentSettings = settings;
-      this.logo = this.currentSettings.setting.logo;
-      this.items = this.currentSettings.nav;
-      this.style = this.currentSettings.background.style;
-      this.background = this.currentSettings.background.value;
-      this.elementRef.nativeElement.ownerDocument
-      .body.style = this.style;
-      
-     
-      debugger;
+  constructor( public appSettings: AppSettingsService, private elementRef: ElementRef,public sanitizer: DomSanitizer) {
+    appSettings.GetSettings().subscribe(s=> {
+      this.logo = s.setting.logo;
+      this.items = s.nav;
+      this.elementRef.nativeElement.ownerDocument.body.style = s.background.style;
     })
-    debugger;
-
    }
    ngAfterViewInit() {
     
 
 }
 
+// onLoad() : any{
+// return this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+// }
 
 
 }

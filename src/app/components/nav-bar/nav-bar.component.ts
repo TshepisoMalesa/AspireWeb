@@ -18,28 +18,22 @@ export class NavBarComponent implements OnInit {
   isLoggedIn = false;
   public getScreenWidth: any;
   public getScreenHeight: any;
-  settings: any;
-  currentSettings: settingsModel = new settingsModel;
-  appSettingsService: any;
   logo: string = '';
   items: any;
 
   constructor( public Myapp: AppComponent, public appSettings: AppSettingsService) {
     this.title = Myapp.title;
     
-    appSettings.GetSettings().then((settings) => {
-      this.currentSettings = settings;
-      this.logo = this.currentSettings.setting.logo;
-      this.items = this.currentSettings.nav;
-      debugger;
+    appSettings.GetSettings().subscribe(s=> {
+      this.logo = s.setting.logo;
+      this.items = s.nav;
     })
-    debugger;
 
    }
 
   ngOnInit(): void {
     this.getScreenWidth = window.innerWidth;
-      this.getScreenHeight = window.innerHeight;
+    this.getScreenHeight = window.innerHeight;
   }
 
   @HostListener('window:resize', ['$event'])

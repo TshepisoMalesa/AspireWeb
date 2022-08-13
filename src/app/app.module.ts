@@ -17,6 +17,8 @@ import {MatListModule} from '@angular/material/list'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { ShopComponent } from './pages/shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     SideNavComponent,
     AppMenuComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LandingComponent,
+    ShopComponent
   ],
   exports: [
     HttpClientModule],

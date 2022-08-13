@@ -27,20 +27,14 @@ export class AppSettingsService {
   }
 
  
-  GetSettings(): Promise<settingsModel> {
+  GetSettings(): Observable<any> {
     this.setHeaders();
 
-    let url = this._apiUrl + "aspire/getSettings";
+    let url = this._apiUrl + "aspire/settings";
 
-    return this.http
-      .get(url, { headers: this.headers, params : new HttpParams()
-        .set('name', 'Codebox' )
-        .set('isTest', true )
-  })
-      .toPromise()
-      .then((response) =>
-        response as Promise<settingsModel>
-      )
+     return this.http
+      .get(url, { headers: this.headers})
+      .pipe(map (response => {return response}));
   }
 
 
