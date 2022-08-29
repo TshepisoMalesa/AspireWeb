@@ -19,6 +19,9 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { ShopComponent } from './pages/shop/shop.component';
+import { PersonModel } from './models/PersonModel';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { ShopComponent } from './pages/shop/shop.component';
     AboutComponent,
     ContactComponent,
     LandingComponent,
-    ShopComponent
+    ShopComponent,
+    LoginComponent
   ],
   exports: [
     HttpClientModule],
@@ -45,7 +49,7 @@ import { ShopComponent } from './pages/shop/shop.component';
     MatListModule,
     MatSidenavModule
   ],
-  providers: [AppSettingsService],
+  providers: [AppSettingsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
